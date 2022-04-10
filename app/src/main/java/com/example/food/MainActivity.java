@@ -15,6 +15,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+//import com.google.firebase.database.DataSnapshot;
+//import com.google.firebase.database.DatabaseError;
+//import com.google.firebase.database.DatabaseReference;
+//import com.google.firebase.database.FirebaseDatabase;
+//import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -73,19 +78,19 @@ public class MainActivity extends AppCompatActivity {
                 u.setPhone(Long.parseLong(binding.editTextPhone.getText().toString()));
                 u.setEmail(binding.editTextTextEmailAddress.getText().toString());
                 reference.setValue(u);
- //               Toast.makeText(MainActivity.this, "Data is added to databases", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Data is added to databases", Toast.LENGTH_SHORT).show();
 
-//                reference.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
                 Intent in =new Intent(getApplicationContext(),MainActivity2food.class);
                 Toast.makeText(this, "SUCCESSFULLY REGISTERED", Toast.LENGTH_SHORT).show();
                 startActivity(in);
